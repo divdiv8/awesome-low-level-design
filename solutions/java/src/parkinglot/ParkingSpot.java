@@ -6,18 +6,18 @@ import parkinglot.vehicletype.VehicleType;
 public class ParkingSpot {
     private final int spotNumber;
     private final VehicleType vehicleType;
-    private Vehicle parkedVehicle;
+    private Vehicle parkedVehicle; // all type of vehicles are not allowed in all spots
 
     public ParkingSpot(int spotNumber, VehicleType vehicleType) {
         this.spotNumber = spotNumber;
         this.vehicleType = vehicleType;
     }
 
-    public synchronized boolean isAvailable() {
+    public  boolean isAvailable() {
         return parkedVehicle == null;
     }
 
-    public synchronized void parkVehicle(Vehicle vehicle) {
+    public  void parkVehicle(Vehicle vehicle) {
         if (isAvailable() && vehicle.getType() == vehicleType) {
             parkedVehicle = vehicle;
         } else {
@@ -25,7 +25,7 @@ public class ParkingSpot {
         }
     }
 
-    public synchronized void unparkVehicle() {
+    public  void unparkVehicle() {
         parkedVehicle = null;
     }
 

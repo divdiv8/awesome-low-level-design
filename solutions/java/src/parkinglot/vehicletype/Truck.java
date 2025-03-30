@@ -2,6 +2,6 @@ package parkinglot.vehicletype;
 
 public class Truck extends Vehicle {
     public Truck(String licensePlate) {
-        super(licensePlate, VehicleType.TRUCK);
+        super(licensePlate, VehicleType.TRUCK);//calls parent constructor
     }
 }

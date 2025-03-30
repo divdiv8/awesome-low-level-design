@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLot {
-    private static ParkingLot instance;
+    private static ParkingLot instance; //singleton
     private final List<Level> levels;
 
     private ParkingLot() {

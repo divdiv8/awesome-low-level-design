@@ -7,9 +7,9 @@ import parkinglot.vehicletype.Vehicle;
 
 public class ParkingLotDemo {
     public static void run() {
-        ParkingLot parkingLot = ParkingLot.getInstance();
-        parkingLot.addLevel(new Level(1, 100));
-        parkingLot.addLevel(new Level(2, 80));
+        ParkingLot parkingLot = ParkingLot.getInstance();// singleton
+        parkingLot.addLevel(new Level(1, 5));
+        parkingLot.addLevel(new Level(2, 6));
 
         Vehicle car = new Car("ABC123");
         Vehicle truck = new Truck("XYZ789");
@@ -28,5 +28,8 @@ public class ParkingLotDemo {
 
         // Display updated availability
         parkingLot.displayAvailability();
+    }
+    public static void main(String args[]){
+        run();
     }
 }

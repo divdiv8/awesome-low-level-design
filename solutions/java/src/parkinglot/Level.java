@@ -19,7 +19,7 @@ public class Level {
 
         int numBikes = (int) (numSpots * spotsForBikes);
         int numCars = (int) (numSpots * spotsForCars);
-
+//[bike,bike,bike,car,car,truck]
         for (int i = 1; i <= numBikes; i++) {
             parkingSpots.add(new ParkingSpot(i,VehicleType.MOTORCYCLE));
         }
@@ -31,17 +31,17 @@ public class Level {
         }
     }
 
-    public synchronized boolean parkVehicle(Vehicle vehicle) {
+    public  boolean parkVehicle(Vehicle vehicle) {
         for (ParkingSpot spot : parkingSpots) {
             if (spot.isAvailable() && spot.getVehicleType() == vehicle.getType()) {
                 spot.parkVehicle(vehicle);
                 return true;
-            }
+            }//n levels , m spots per level. vehicle to be parked goes into last slot. n*m
         }
         return false;
     }
 
-    public synchronized boolean unparkVehicle(Vehicle vehicle) {
+    public  boolean unparkVehicle(Vehicle vehicle) {
         for (ParkingSpot spot : parkingSpots) {
             if (!spot.isAvailable() && spot.getParkedVehicle().equals(vehicle)) {
                 spot.unparkVehicle();
